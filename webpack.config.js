@@ -34,8 +34,7 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin('[hash].css'),
     new HtmlWebpackPlugin({
-      template: './src/main.pug',
-      title: 'brummefar.dk'
+      template: './src/main.pug'
     })
   ]
 }
