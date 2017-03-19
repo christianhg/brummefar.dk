@@ -16,8 +16,16 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.js$/,
+        use: ['babel-loader']
+      },
+      {
         test: /\.jpg$/,
         use: ['file-loader']
+      },
+      {
+        test: /\.md$/,
+        use: ['html-loader', 'highlight-loader', 'markdown-loader']
       },
       {
         test: /\.pug$/,
