@@ -20,6 +20,12 @@ module.exports = {
         use: ['babel-loader']
       },
       {
+        enforce: 'pre',
+        exclude: path.resolve(__dirname, 'src/ga.js'),
+        test: /\.js$/,
+        use: 'standard-loader'
+      },
+      {
         test: /\.jpg$/,
         use: ['file-loader']
       },

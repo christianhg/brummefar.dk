@@ -5,7 +5,6 @@ import './main.scss'
 import './ga'
 
 import Navigo from 'navigo'
-import marked from 'marked'
 
 const home = {
   content: require('./pages/home.md')
@@ -33,7 +32,9 @@ router
         router.navigate('')
       }
     },
-    '*': () => main[0].innerHTML = home.content
+    '*': () => {
+      main[0].innerHTML = home.content
+    }
   })
   .resolve()
 
