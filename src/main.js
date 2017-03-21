@@ -2,7 +2,7 @@ import 'reset-css/reset.css'
 import 'highlight.js/styles/atom-one-light.css'
 import './main.scss'
 
-import './ga'
+import './vendor/ga'
 
 import Navigo from 'navigo'
 
