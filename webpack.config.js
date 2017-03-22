@@ -1,3 +1,4 @@
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
@@ -46,6 +47,11 @@ module.exports = {
     ]
   },
   plugins: [
+    new CopyWebpackPlugin([
+      {
+        from: './src/googlecfb0a8661b3fb380.html'
+      }
+    ]),
     new ExtractTextPlugin('[hash].css'),
     new HtmlWebpackPlugin({
       template: './src/main.pug'
