@@ -3058,9 +3058,9 @@ natural-compare@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
 
-navigo@^4.3.0:
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/navigo/-/navigo-4.3.0.tgz#707c1246318c19ed1889e8c0dff25122edba4c99"
+navigo@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/navigo/-/navigo-4.3.1.tgz#c5f8c3a8f48ccde0f269e9affdaab3462f360d32"
 
 ncname@1.0.x:
   version "1.0.0"
