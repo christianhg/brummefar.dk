@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Open+Sans:400,400i,700,700i');
+@import '~modularscale-sass/stylesheets/modular-scale';
+
+@import url('https://fonts.googleapis.com/css?family=Lora|Source+Sans+Pro:400,400i,700,700i');
 
 @font-face {
   font-family: 'FiraCode';
@@ -6,81 +8,93 @@
        url('./fonts/FiraCode-Regular.woff') format('woff');
 }
 
-$primary-color: #1B2550;
-$secondary-color: #F6EFE4;
-$text-color: #0D2624;
+$ms-base: 18px;
+$ms-ratio: 1.618;
+
+$color-primary: #000; //#1B2550;
+$color-text: rgb(20, 20, 20); //#0D2624;
+$color-background: rgb(250, 250, 250);
+
+$font-family-primary: 'Source Sans Pro', sans-serif;
+$font-family-secondary: 'Lora', serif;
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  background-color: $secondary-color;
-  color: $text-color;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
-  line-height: 2em;
+  background-color: $color-background;
+  color: $color-text;
+  font-family: $font-family-primary;
+  font-size: ms(0);
+  padding-left: ms(2);
+  padding-right: ms(2);
 }
 
 root {
   display: block;
-  max-width: 800px;
+  max-width: ms(7);
   margin-left: auto;
   margin-right: auto;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-top: ms(2);
 }
 
-main {
-  margin-bottom: 2rem;
+nav {
+  font-family: $font-family-secondary;
+  margin-bottom: ms(1);
 }
 
 footer {
-  font-size: 0.8rem;
+  font-size: ms(-1);
   text-align: right;
 }
 
 li {
   nav & {
+    position: relative;
+
     &:before {
       content: '☞';
-      font-size: 1.5rem;
-      margin-right: 0.2rem;
-      position: relative;
-      top: 0.2rem;
+      font-size: 1.4em;
+      position: absolute;
+      margin-left: -1.25em;
+      top: -0.05em;
     }
   }
 }
 
-h1, 
+h1,
 h2 {
-  color: $primary-color;
-  font-family: 'Abril Fatface', cursive;
+  color: $color-primary;
+  font-family: $font-family-secondary;
 }
 
 h1 {
   header & {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    margin-top: 2rem;
+    font-size: ms(1);
+    margin-bottom: ms(1);
   }
 
   main & {
-    font-size: 3rem;
-    line-height: 1em;
-    margin-bottom: 2rem;
-    margin-top: 3rem;
+    font-size: ms(2);
+    margin-bottom: ms(1);
+    margin-top: ms(2);
   }
 }
 
 h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  margin-top: 2.5rem;
+  font-size: ms(1);
+  margin-bottom: ms(-1);
+  margin-top: ms(2);
 }
 
 p {
-  margin-bottom: 0.5rem;
+  line-height: ms(1);
+  margin-bottom: ms(1);
+
+  blockquote &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 img {
@@ -88,19 +102,29 @@ img {
 }
 
 blockquote {
-  border-color: $primary-color;
-  border-left-width: 0.2rem;
+  border-color: $color-primary;
+  border-left-width: ms(-3);
   border-style: solid;
   font-style: italic;
-  padding-left: 0.5rem;
-  margin-bottom: 1rem;
+  padding-left: ms(-1);
+  margin-bottom: ms(1);
 }
 
 a {
-  color: #1B2550;
+  color: $color-text;
+  position: relative;
+  text-decoration: none;
 
-  &:hover {
-    text-decoration: none;
+  &:after {
+    background-color: #94C757;
+    content: '';
+    display: block;
+    height: 0.2em;
+    left: 0;
+    position: absolute;
+    top: 1.1em;
+    width: 100%;
+    z-index: -1;
   }
 }
 
@@ -109,15 +133,22 @@ strong {
 }
 
 pre {
-  margin-bottom: 1rem;
+  color: $color-text !important;
+  margin-bottom: ms(1);
+  padding-bottom: ms(-1) !important;
+  padding-left: ms(-1) !important;
+  padding-right: ms(-1) !important;
+  padding-top: ms(-1) !important;
 }
 
 code,
 pre {
+  background-color: rgb(245, 245, 245) !important;
   font-family: 'FiraCode', monospace;
+  letter-spacing: 0.05em;
 }
 
 code {
-  color: $primary-color;
-  font-weight: bold;
+  padding-left: 0.15em;
+  padding-right: 0.15em;
 }
