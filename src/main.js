@@ -7,23 +7,29 @@ import './vendor/ga'
 import Navigo from 'navigo'
 
 const home = {
-  content: require('./pages/home.md')
+  content: require('./pages/home.md'),
+  title: 'Hi, I\'m Christian!'
 }
 
 const pages = [
   home,
   {
     content: require('./pages/choosing-redux.md'),
-    path: 'choosing-redux'
+    path: 'choosing-redux',
+    title: 'Choosing Redux'
   },
   {
     content: require('./pages/currying-javascript.md'),
-    path: 'currying-javascript'
+    path: 'currying-javascript',
+    title: 'Currying JavaScript 🍛'
   }
 ]
 
+const baseTitle = 'brummefar.dk'
 const router = new Navigo(undefined, true, '#!')
 const main = document.getElementsByTagName('main')
+
+const getTitle = pageTitle => `${pageTitle} ~ ${baseTitle}`
 
 router
   .on({
@@ -32,12 +38,14 @@ router
 
       if (page) {
         main[0].innerHTML = page.content
+        document.title = getTitle(page.title)
       } else {
         router.navigate('')
       }
     },
     '*': () => {
       main[0].innerHTML = home.content
+      document.title = getTitle(home.title)
     }
   })
   .resolve()
