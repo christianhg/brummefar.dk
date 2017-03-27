@@ -15,6 +15,10 @@ const pages = [
   {
     content: require('./pages/choosing-redux.md'),
     path: 'choosing-redux'
+  },
+  {
+    content: require('./pages/currying-javascript.md'),
+    path: 'currying-javascript'
   }
 ]
 
