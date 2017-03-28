@@ -4,14 +4,14 @@ import './main.scss'
 
 import './vendor/ga'
 
-import Navigo from 'navigo'
+import page from 'page'
 
 const home = {
   content: require('./pages/home.md'),
   title: 'Hi, I\'m Christian!'
 }
 
-const pages = [
+const articles = [
   home,
   {
     content: require('./pages/choosing-redux.md'),
@@ -26,29 +26,30 @@ const pages = [
 ]
 
 const baseTitle = 'brummefar.dk'
-const router = new Navigo(undefined, true, '#!')
 const main = document.getElementsByTagName('main')
 
 const getTitle = pageTitle => `${pageTitle} ~ ${baseTitle}`
+const setArticle = (article) => {
+  main[0].innerHTML = article.content
+  document.title = getTitle(article.title)
+}
 
-router
-  .on({
-    ':page': (params) => {
-      const page = pages.find(page => page.path === params.page)
+page('/', () => {
+  setArticle(home)
+})
 
-      if (page) {
-        main[0].innerHTML = page.content
-        document.title = getTitle(page.title)
-      } else {
-        router.navigate('')
-      }
-    },
-    '*': () => {
-      main[0].innerHTML = home.content
-      document.title = getTitle(home.title)
-    }
-  })
-  .resolve()
+page('/:article', (context) => {
+  const article = articles.find(article => article.path === context.params.article)
 
-router
-  .notFound(() => router.navigate(''))
+  if (article) {
+    setArticle(article)
+  } else {
+    page.redirect('/')
+  }
+})
+
+page('*', () => {
+  page.redirecte('/')
+})
+
+page()
