@@ -6,26 +6,28 @@ Redux is not as much a library as it is a programming pattern. And it is a very 
 
 ## Predictable state management
 
-Redux encourages the entire state of the application to be a single source of truth persisted in a global store. This results in dump components that are truly dump. The only way for components to modify the state is to dispatch an action to the store. In turn, the components subscribe to state changes, and can update themselves upon getting these. In other words: state management is unidirectional and thus predictable. 
+Redux encourages the entire state of the application to be a single source of truth persisted in a **global store**. This results in dump components that are truly dump. The only way for components to modify the state is to **dispatch an action** to the store. In turn, the components **subscribe to state changes**, and can update themselves upon getting these. In other words: state management is unidirectional and thus predictable.
 
 ## Testable state transitions
 
-Because each state transition is triggered by an action on the view layer, the real transition of state is handled in reducers hooked into the store. A reducer is a middleware, that each action passes through. If the action is meaningful to a particular reducer (i.e. it has the correct type), the reducer will manipulate the state using that action. A reducer is a function just like one passed to the higher-order `Array.prototype.reduce`. It takes an accumulator (the state), a value (the action) and returns the new accumulated value (the new state):
+Because each state transition is triggered by an action on the view layer, the real transition of state is handled in **reducers** hooked into the store. A reducer is a middleware, that each action passes through. If the action is meaningful to a particular reducer (i.e. it has the correct **type**), the reducer will manipulate the state using that action.
+
+A reducer is a function just like one passed to the higher-order [`Array.prototype.reduce`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce). It takes an accumulator (the `state`), a value (the `action`) and returns the new accumulated value (the new `state`):
 
 ```js
 reducer(state, action) => state
 ```
 
-Redux requires reducers to be pure functions, meaning that any state transition can be easily provided mock data and unit tested.
+Redux requires reducers to be [pure functions](https://en.wikipedia.org/wiki/Pure_function), meaning that any state transition can be easily provided mock data and unit tested.
 
 ## The state is read-only
 
 The most evident source of bugs in AngularJS applications is by far directives manipulating state [citation needed]. Directives become big classes that use internal state and tangled methods to manipulate some data that is two-way data bound with other directives. It is hard to reason about, it is hard to test and often the problem just keeps growing. A read-only state will eliminate the the need for two-way data-binding and thus, as explained earlier, keep the views free from state transition logic.
 
 ## More boilerplate, but worth it
-Redux requires some boilerplate to enforce predictable, testable state management. And in some cases it would even require more code than if the state change was done in an ordinary “Angular way”. 
+Redux requires some boilerplate to enforce predictable, testable state management. And in some cases it would even require more code than if the state change was done in an ordinary “Angular way”.
 
-The simplest example (unfair to Redux) is a panel that is toggled using a button. In an ordinary implementation, the flipping of a `panelShown` boolean could be done using a single expression inside an `ngClick` directive on the button. The panel would then have an `ngShow` directive responsible for showing and hiding it. 
+The simplest example (unfair to Redux) is a panel that is toggled using a button. In an ordinary implementation, the flipping of a `panelShown` boolean could be done using a single expression inside an `ngClick` directive on the button. The panel would then have an `ngShow` directive responsible for showing and hiding it.
 
 In a Redux implementation, these two directives would still be in place, but instead of flipping a boolean, the `ngClick` needs to dispatch a `‘TOGGLE_PANEL’` action that runs through a reducer. The controller would then need to subscribe to the new state and apply that to the view. That’s at least three new functions added to the code base.
 
