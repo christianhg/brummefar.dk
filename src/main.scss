@@ -1,5 +1,4 @@
 @import '~modularscale-sass/stylesheets/modular-scale';
-
 @import url('https://fonts.googleapis.com/css?family=Lora|Source+Sans+Pro:400,400i,700,700i');
 
 @font-face {
@@ -11,10 +10,12 @@
 $ms-base: 18px;
 $ms-ratio: 1.618;
 
-$color-primary: #000;
-$color-text: rgb(20, 20, 20);
-$color-background: rgb(250, 250, 250);
+$color-black: rgb(20, 20, 20);
+$color-grey: rgb(245, 245, 245);
+$color-highlight: #94C757;
+$color-white: rgb(250, 250, 250);
 
+$font-family-code: 'FiraCode', monospace;
 $font-family-primary: 'Source Sans Pro', sans-serif;
 $font-family-secondary: 'Lora', serif;
 
@@ -23,8 +24,8 @@ $font-family-secondary: 'Lora', serif;
 }
 
 body {
-  background-color: $color-background;
-  color: $color-text;
+  background-color: $color-white;
+  color: $color-black;
   font-family: $font-family-primary;
   font-size: ms(0);
   padding-left: ms(2);
@@ -67,7 +68,6 @@ li {
 
 h1,
 h2 {
-  color: $color-primary;
   font-family: $font-family-secondary;
 }
 
@@ -104,7 +104,7 @@ img {
 }
 
 blockquote {
-  border-color: $color-primary;
+  border-color: $color-black;
   border-left-width: ms(-3);
   border-style: solid;
   font-style: italic;
@@ -113,12 +113,12 @@ blockquote {
 }
 
 a {
-  color: $color-text;
+  color: $color-black;
   position: relative;
   text-decoration: none;
 
   &:after {
-    background-color: #94C757;
+    background-color: $color-highlight;
     content: '';
     display: block;
     height: 0.2em;
@@ -139,7 +139,7 @@ em {
 }
 
 pre {
-  color: $color-text !important;
+  color: $color-black !important;
   line-height: ms(1);
   margin-bottom: ms(1);
   padding-bottom: ms(-1) !important;
@@ -157,8 +157,8 @@ pre {
 
 code,
 pre {
-  background-color: rgb(245, 245, 245) !important;
-  font-family: 'FiraCode', monospace;
+  background-color: $color-grey !important;
+  font-family: $font-family-code;
   letter-spacing: 0.05em;
 }
 
