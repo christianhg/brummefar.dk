@@ -10,10 +10,13 @@ module.exports = {
     historyApiFallback: true,
     port: 9000
   },
-  entry: './src/main.js',
+  entry: {
+    ga: './src/ga.js',
+    main: './src/main.js'
+  },
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[hash].js'
+    filename: '[name].[chunkhash].js',
+    path: path.resolve(__dirname, 'dist')
   },
   module: {
     rules: [

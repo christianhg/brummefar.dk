@@ -2,8 +2,6 @@ import 'reset-css/reset.css'
 import 'highlight.js/styles/atom-one-light.css'
 import './main.scss'
 
-import './vendor/ga'
-
 import page from 'page'
 
 const home = {
