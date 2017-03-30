@@ -58,7 +58,7 @@ module.exports = {
     ]),
     new ExtractTextPlugin('[hash].css'),
     new FaviconsWebpackPlugin({
-      logo: './src/favicon.svg',
+      logo: './src/favicon.png',
       title: 'brummefar.dk',
       icons: {
         android: false,
