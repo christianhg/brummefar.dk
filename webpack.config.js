@@ -26,7 +26,6 @@ module.exports = {
       },
       {
         enforce: 'pre',
-        exclude: path.resolve(__dirname, 'src/vendor'),
         test: /\.js$/,
         use: 'standard-loader'
       },
