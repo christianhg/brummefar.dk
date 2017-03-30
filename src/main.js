@@ -4,31 +4,17 @@ import './main.scss'
 
 import page from 'page'
 
-const home = {
-  content: require('./pages/home.md'),
-  title: 'Hi, I\'m Christian!'
-}
-
-const articles = [
-  home,
-  {
-    content: require('./pages/choosing-redux.md'),
-    path: 'choosing-redux',
-    title: 'Choosing Redux'
-  },
-  {
-    content: require('./pages/currying-javascript.md'),
-    path: 'currying-javascript',
-    title: 'Currying JavaScript 🍛'
-  }
-]
+import { articles, home } from './articles'
 
 const baseTitle = 'brummefar.dk'
 const main = document.getElementsByTagName('main')
 
 const getTitle = pageTitle => `${pageTitle} ~ ${baseTitle}`
-const setArticle = (article) => {
-  main[0].innerHTML = article.content
+const setArticle = article => {
+  article.getContent()
+    .then(content => {
+      main[0].innerHTML = content
+    })
   document.title = getTitle(article.title)
 }
 
