@@ -1,6 +1,6 @@
 import 'reset-css/reset.css'
 import 'highlight.js/styles/atom-one-light.css'
-import './main.scss'
+import '../main.scss'
 
 import page from 'page'
 

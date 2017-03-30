@@ -12,8 +12,8 @@ module.exports = {
     port: 9000
   },
   entry: {
-    ga: './src/ga.js',
-    main: './src/main.js'
+    ga: './src/js/ga.js',
+    main: './src/js/main.js'
   },
   output: {
     filename: '[name].[chunkhash].js',
@@ -27,7 +27,7 @@ module.exports = {
       },
       {
         enforce: 'pre',
-        exclude: path.resolve(__dirname, 'src/articles.js'),
+        exclude: path.resolve(__dirname, 'src/js/articles.js'),
         test: /\.js$/,
         use: 'standard-loader'
       },
@@ -59,7 +59,7 @@ module.exports = {
     ]),
     new ExtractTextPlugin('[hash].css'),
     new FaviconsWebpackPlugin({
-      logo: './src/favicon.png',
+      logo: './src/images/favicon.png',
       title: 'brummefar.dk',
       icons: {
         android: false,
