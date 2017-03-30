@@ -40,7 +40,7 @@ module.exports = {
       },
       {
         test: /\.pug$/,
-        use: ['pug-loader']
+        use: ['html-loader', 'pug-html-loader']
       },
       {
         test: /\.(scss|css)$/,
