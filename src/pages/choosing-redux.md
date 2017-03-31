@@ -1,6 +1,6 @@
 # Choosing Redux
 
-> Choosing [Redux](http://redux.js.org/) to manage state in an [AngularJS](https://angularjs.org/) application.
+### Choosing [Redux](http://redux.js.org/) to manage state in an [AngularJS](https://angularjs.org/) application.
 
 Redux is not as much a library as it is a programming pattern. And it is a very powerful pattern. With an API of only 5 functions, a footprint of 2kB, and written in a some 200 lines of source code, Redux can enlighten the path to better state management. State management does not have to be a dreadful, unpredictable bug-magnet. It can be both fun and predictable.
 
