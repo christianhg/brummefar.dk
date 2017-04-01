@@ -32,7 +32,7 @@ module.exports = {
         use: 'standard-loader'
       },
       {
-        test: /\.(jpg|woff|woff2)$/,
+        test: /\.(jpg|woff|woff2|svg)$/,
         use: ['file-loader']
       },
       {

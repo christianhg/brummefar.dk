@@ -14,5 +14,10 @@ export const articles = [
     getContent: () => import('../pages/currying-javascript.md'),
     path: 'currying-javascript',
     title: 'Currying JavaScript 🍛'
+  },
+  {
+    getContent: () => import('../pages/hashes-and-salts.md'),
+    path: 'hashes-and-salts',
+    title: 'Hashes and Salts'
   }
 ]
