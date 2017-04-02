@@ -26,7 +26,7 @@ slice(0)(2)([0, 1, 2, 3, 4])
 // => [0, 1]
 ```
 
-Let's write it more succintly using [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions):
+Let's write it more succinctly using [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions):
 
 ```js
 const sliceCurried = from =>
@@ -41,7 +41,7 @@ It first takes the `from` argument, then returns a function that expects the `to
 
 ## When to add Curry 🥄
 
-The motivations for currying functions vary. One reason is the ability to pass a function *some* of its arguments at one point in time, and then pass the *rest* later. This can e.g. lead to reusability by being able to preset a function. Another reason is the ability to write some very expressive code.
+The motivations for currying functions vary. One reason is the ability to pass a function *some* of its arguments at one point, and then pass the *rest* later. This can e.g. lead to reusability by being able to preset a function. Another reason is the ability to write expressive code.
 
 Consider this example of using the curried function to implement a whole new `take` function:
 
@@ -67,7 +67,7 @@ takeTwo(['a', 'b', 'c', 'd', 'e'])
 // => ['a', 'b']
 ```
 
-The fact that a function can easily be repurposed in an expressive way is a very powerful feature. Remember, code is for humans to read. It's merely a side effect if the computers understand it too.
+The fact that a function can easily be repurposed in an expressive way is a  powerful feature. Remember, code is for humans to read. It's merely a side effect if the computers understand it too.
 
 Jokes aside, which one is easiest to read an reason about?
 
@@ -83,7 +83,7 @@ I'd go for the latter of the two anytime.
 
 In reality it's impractical and unnecessary to pre-curry each function manually. It's often more suitable to use a utility function to curry functions when needed. Both [lodash](https://github.com/lodash/lodash), [Ramda](https://github.com/ramda/ramda) and my own library [bukk](https://github.com/christianhg/bukk) provide functions like this.
 
-It turns out, it is not very difficult to implement a simple curry function. The one in bukk looks like this:
+It turns out, it is not too difficult to implement a simple curry function. The one in bukk looks like this:
 
 ```js
 const curry = (f, recieved = [], arity = f.length) =>
@@ -124,7 +124,7 @@ add3Curried(1, 3, 7)
 
 One of the reasons our curried `slice` function is particularly reusable is that is "data last", e.i. the data that the function transforms is passed as the last argument.
 
-It would not have been possible to impement a generic `takeTwo` function if the Array was passed as the first argument:
+It would not have been possible to implement a generic `takeTwo` function if the Array was passed as the first argument:
 
 ```js
 const sliceCurried = xs =>
