@@ -2,7 +2,7 @@
 
 ### A lightweight introduction to the theory of hashing and salting passwords
 
-It goes without saying that passwords should be handled with a certain type of carefulness. Storing passwords in cleartext is a practice of the past. In fact, using passwords at all, as means of authentication, seems to be slowly going away in favor of [Passwordless Authentication](https://auth0.com/blog/how-passwordless-authentication-works/).
+It goes without saying that passwords should be handled with a certain type of carefulness. Storing passwords in cleartext is a practice of the past. In fact, using passwords at all, as means of authentication, seems to be slowly going away in favour of [Passwordless Authentication](https://auth0.com/blog/how-passwordless-authentication-works/).
 
 However, there is still a need for passwords, and a need for us to know, how to use them to authenticate users in a secure way. This is a lightweight introduction to the theory of hashing and salting passwords.
 
@@ -15,7 +15,7 @@ hashFunction(key)
 // => hash
 ```
 
-A hash function takes an input of arbitrary length and returns an output of fixed length. To obfuscate the input it uses a hash algoritm.
+A hash function takes an input of arbitrary length and returns an output of fixed length. To obfuscate the input it uses a hash algorithm.
 
 Here is an example of a theoretical hash function that uses the [SHA256](https://en.wikipedia.org/wiki/SHA-2) algorithm to obfuscate its input:
 
@@ -35,7 +35,7 @@ sha256HashFunction('slightly longer string')
 
 The same input always yields the same output, two very similar inputs yield a very different output, and in theory, **no two different inputs should yield the same output**.
 
-The last bit is very imporant (hence the bolded text). It's what makes it possible to use hash values to do the **integrity checking**.
+The last bit is very important (hence the bolded text). It's what makes it possible to use hash values to do the **integrity checking**.
 
 ## Using hashes to check integrity
 
@@ -47,7 +47,7 @@ checksumFromWebsite == hashFunction(file)
 
 The "probably not" goes hand in hand with the "in theory" of the prior section. One of the desired properties of a hash function is that it should be **collision resistant**. However, most hash functions don't stand the test of time and are eventually proven not to be.
 
-The same pinciple applies when a system checks the authenticity of a user. When the user first registers themselves in a system, they enter their desired password in cleartext. The password is then hashed and persisted in a database:
+The same principle applies when a system checks the authenticity of a user. When the user first registers themselves in a system, they enter their desired password in cleartext. The password is then hashed and persisted in a database:
 
 ![Creating password hash](../images/hashes-and-salts-c.svg)
 
@@ -58,7 +58,7 @@ To re-enter the system, the user again enters their password in cleartext. Again
 
 ## Is it offensive to add salt?
 
-The approach described above is better than storing passwords in cleartext, but in the real world it's not sufficient. The reason is mainly something called [rainbow tables](http://kestas.kuliukas.com/RainbowTables/). A rainbow table is basically a precomputed list of cleartext keys and their respective hashes. Using a rainbow table it is thus possible to derive a password from it's hash. To guard against this, it is common pratice to add **salt**.
+The approach described above is better than storing passwords in cleartext, but in the real world it's not sufficient. The reason is mainly something called [rainbow tables](http://kestas.kuliukas.com/RainbowTables/). A rainbow table is basically a precomputed list of cleartext keys and their respective hashes. Using a rainbow table it is thus possible to derive a password from it's hash. To guard against this, it is common practice to add **salt**.
 
 A salt is a random piece of data used to obfuscate the password even further. The reason rainbow tables work is because a hash function always yields the same output for the same input. Adding some salt to the mix makes the use of these tables impractical because a hash value no longer can be matched to the original input:
 
@@ -70,7 +70,7 @@ hashFunction(hashFunction('pass123') + hashFunction(randomSalt))
 // => different hash
 ```
 
-Nothing has changed about how a user registers themselves in a system or how they re-enter it. But the process of checking their integrity is slightly changed. Upon registration, they still enter their desired password in cleartext which is then hashed. In addition a random salt is generated, hashed and persisted. The salt is then hashed together with the hashed password to create what can be considered a unique hash for this input at this point in time:
+Nothing has changed about how a user registers themselves in a system or how they re-enter it. But the process of checking their integrity is slightly changed. Upon registration, they still enter their desired password in cleartext which is then hashed. In addition a random salt is generated, hashed and persisted. The salt is then hashed together with the hashed password to create what can be considered a unique hash for this input at this point:
 
 ![Creating password hash with salt](../images/hashes-and-salts-a.svg)
 
@@ -80,4 +80,4 @@ When re-entering the system, the user's supplied password is hashed, the related
 
 ## Conclusion
 
-In this post we have merely dipped our toes into the ocean of cryptography in order to get a better understanding of password management. Even though many of the concepts introduced are far more complex than presented here, it has hopefully been a lightweight introduction to password integrity checking. For what it's worth, the diagrams have served myself as a nifty reference to refresh how password hashing and salting works.
+In this post we have merely dipped our toes into the ocean of cryptography in order to get a better understanding of password management. Even though many of the concepts introduced are far more complex than presented here, it should have been a lightweight introduction to password integrity checking.
