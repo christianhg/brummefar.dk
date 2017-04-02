@@ -2,34 +2,49 @@ import 'reset-css/reset.css'
 import 'highlight.js/styles/atom-one-light.css'
 import '../main.scss'
 
-import page from 'page'
+import * as router from 'page'
 
-import { articles, home } from './articles'
+import { articles, home, wrote } from './pages'
 
 const baseTitle = 'brummefar.dk'
 const main = document.getElementsByTagName('main')
+const menu = document.getElementsByTagName('nav')[0].getElementsByTagName('ul')
 
 const getTitle = pageTitle => `${pageTitle} ~ ${baseTitle}`
-const setArticle = article => {
-  article.getContent()
+const setMenu = links => {
+  menu[0].innerHTML = links
+    .map(link => `<li><a href="${link.path}">${link.title}</a></li>`)
+    .join('')
+}
+const setPage = page => {
+  page.getContent()
     .then(content => {
       main[0].innerHTML = content
     })
-  document.title = getTitle(article.title)
+  document.title = getTitle(page.link.title)
+  setMenu(page.links)
 }
 
-page('/', () => {
-  setArticle(home)
+router('/', () => {
+  setPage(home)
 })
 
-page('/:article', context => {
-  const article = articles.find(article => article.path === context.params.article)
+router('/wrote', () => {
+  setPage(wrote)
+})
+
+router('/wrote/:article', context => {
+  const article = articles.find(article => article.link.path === context.path)
 
   if (article) {
-    setArticle(article)
+    setPage(article)
   } else {
-    page.redirect('/')
+    router.redirect('/')
   }
 })
 
-page()
+router('*', () => {
+  router.redirect('/')
+})
+
+router()

@@ -71,9 +71,8 @@ ul {
 }
 
 li {
-  margin-bottom: ms(0);
-
   nav & {
+    margin-bottom: ms(0);
     position: relative;
 
     &:before {

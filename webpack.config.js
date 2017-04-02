@@ -17,7 +17,8 @@ module.exports = {
   },
   output: {
     filename: '[name].[chunkhash].js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -27,7 +28,7 @@ module.exports = {
       },
       {
         enforce: 'pre',
-        exclude: path.resolve(__dirname, 'src/js/articles.js'),
+        exclude: path.resolve(__dirname, 'src/js/pages.js'),
         test: /\.js$/,
         use: 'standard-loader'
       },
