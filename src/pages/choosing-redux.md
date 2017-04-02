@@ -2,7 +2,7 @@
 
 ### Choosing [Redux](http://redux.js.org/) to manage state in an [AngularJS](https://angularjs.org/) application
 
-Redux is not as much a library as it is a programming pattern. And it is a very powerful pattern. With an API of only 5 functions, a footprint of 2kB, and written in a some 200 lines of source code, Redux can enlighten the path to better state management. State management does not have to be a dreadful, unpredictable bug-magnet. It can be both fun and predictable.
+Redux is not as much a library as it is a programming pattern. And it is a  powerful pattern. With an API of only 5 functions, a footprint of 2kB, and written in a some 200 lines of source code, Redux can enlighten the path to better state management. State management does not have to be a dreadful, unpredictable bug-magnet. It can be both fun and predictable.
 
 ## Predictable state management
 
@@ -22,7 +22,7 @@ Redux requires reducers to be [pure functions](https://en.wikipedia.org/wiki/Pur
 
 ## The state is read-only
 
-The most evident source of bugs in AngularJS applications is by far directives manipulating state [citation needed]. Directives become big classes that use internal state and tangled methods to manipulate some data that is two-way data bound with other directives. It is hard to reason about, it is hard to test and often the problem just keeps growing. A read-only state will eliminate the the need for two-way data-binding and thus, as explained earlier, keep the views free from state transition logic.
+The most evident source of bugs in AngularJS applications is by far directives manipulating state [citation needed]. Directives become big classes that use internal state and tangled methods to manipulate some data that is two-way data bound with other directives. It is hard to reason about, it is hard to test and often the problem just keeps growing. A read-only state will eliminate the need for two-way data-binding and thus, as explained earlier, keep the views free from state transition logic.
 
 ## More boilerplate, but worth it
 Redux requires some boilerplate to enforce predictable, testable state management. And in some cases it would even require more code than if the state change was done in an ordinary “Angular way”.
@@ -34,4 +34,4 @@ In a Redux implementation, these two directives would still be in place, but ins
 A larger codebase is usually harder to read and reason about, generates more bugs and so on. But naive code generates bugs too. The three extra functions are simple, pure functions. The fact that the state transition is now unidirectional, testable and predictable is arguably worth it.
 
 ## Enables super powers
-When each state transition is described using a actions applied to the prior state, a lot of doors suddenly open. Ideas like adding “undo” functionality to an editor or saving the panel toggle state on browser refresh are not even far fetched - they are very implementable. Saving state transitions in LocalStorage and having the ability to “replay” them when needed is just too cool to grasp.
+When each state transition is described using a actions applied to the prior state, a lot of doors suddenly open. Ideas like adding “undo” functionality to an editor or saving the panel toggle state on browser refresh are not even far fetched - they are implementable. Saving state transitions in LocalStorage and having the ability to “replay” them when needed is just too cool to grasp.
