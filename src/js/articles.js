@@ -4,7 +4,6 @@ export const home = {
 }
 
 export const articles = [
-  home,
   {
     getContent: () => import('../pages/choosing-redux.md'),
     path: 'choosing-redux',

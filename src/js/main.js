@@ -22,7 +22,7 @@ page('/', () => {
   setArticle(home)
 })
 
-page('/:article', (context) => {
+page('/:article', context => {
   const article = articles.find(article => article.path === context.params.article)
 
   if (article) {
@@ -30,10 +30,6 @@ page('/:article', (context) => {
   } else {
     page.redirect('/')
   }
-})
-
-page('*', () => {
-  page.redirecte('/')
 })
 
 page()
