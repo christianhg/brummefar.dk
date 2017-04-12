@@ -188,3 +188,9 @@ pre {
 code {
   background-color: none !important;
 }
+
+.date {
+  font-variant: small-caps;
+  margin-bottom: -(ms(1));
+  margin-top: ms(2);
+}

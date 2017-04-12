@@ -19,7 +19,9 @@ const setMenu = links => {
 const setPage = page => {
   page.getContent()
     .then(content => {
-      main[0].innerHTML = content
+      main[0].innerHTML = page.date
+          ? `<div class="date">${page.date}</div>${content}`
+          : content
     })
   document.title = getTitle(page.link.title)
   setMenu(page.links)

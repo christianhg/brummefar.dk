@@ -19,6 +19,7 @@ const links = [
 
 export const articles = [
   {
+    date: '6 March 2017',
     getContent: () => import('../pages/choosing-redux.md'),
     link: links[1],
     links: [
@@ -26,6 +27,7 @@ export const articles = [
     ]
   },
   {
+    date: '27 March 2017',
     getContent: () => import('../pages/currying-javascript.md'),
     link: links[2],
     links: [
@@ -33,6 +35,7 @@ export const articles = [
     ]
   },
   {
+    date: '1 April 2017',
     getContent: () => import('../pages/hashes-and-salts.md'),
     link: links[3],
     links: [
