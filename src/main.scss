@@ -145,12 +145,23 @@ blockquote {
 }
 
 a {
-  background-image: linear-gradient(to bottom, $color-highlight, $color-highlight);
-  background-repeat: repeat-x;
-  background-size: auto 0.15em;
-  background-position: 0 1.1em;
   color: $color-black;
+  position: relative;
   text-decoration: none;
+
+  &:before {
+    background-image: linear-gradient(to bottom, $color-highlight, $color-highlight);
+    background-repeat: repeat-x;
+    background-size: auto 0.15em;
+    background-position: 0 1.1em;
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -2;
+  }
 }
 
 strong {
