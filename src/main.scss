@@ -178,8 +178,8 @@ pre {
   line-height: ms(1);
   margin-bottom: ms(1);
   padding-bottom: ms(-1) !important;
-  padding-left: ms(-1) !important;
-  padding-right: ms(-1) !important;
+  padding-left: 0.9em !important;
+  padding-right: 0.9em !important;
   padding-top: ms(-1) !important;
 }
 
@@ -193,7 +193,7 @@ pre {
 code,
 pre {
   font-family: $font-family-code;
-  font-size: 0.9em;
+  font-size: 0.85em;
 }
 
 code {
