@@ -14,6 +14,10 @@ const links = [
   {
     path: '/wrote/hashes-and-salts',
     title: 'Hashes and Salts'
+  },
+  {
+    path: '/wrote/immutable-javascript',
+    title: 'Immutable JavaScript'
   }
 ]
 
@@ -41,6 +45,14 @@ export const articles = [
     links: [
       links[0]
     ]
+  },
+  {
+    date: '17 April 2017',
+    getContent: () => import('../pages/immutable-javascript.md'),
+    link: links[4],
+    links: [
+      links[0]
+    ]
   }
 ]
 
@@ -50,7 +62,8 @@ export const wrote = {
   links: [
     links[1],
     links[2],
-    links[3]
+    links[3],
+    links[4]
   ]
 }
 
