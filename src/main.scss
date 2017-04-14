@@ -13,8 +13,8 @@ $modularscale: (
 );
 
 $color-black: rgb(50, 50, 50);
-$color-grey: rgb(245, 245, 245);
-$color-highlight: #94C757;
+$color-grey: rgb(240, 240, 240);
+$color-highlight: lighten(#94C757, 15%);
 $color-white: rgb(250, 250, 250);
 
 $font-family-code: 'FiraCode', monospace;
