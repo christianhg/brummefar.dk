@@ -41,7 +41,7 @@ It first takes the `from` argument, then returns a function that expects the `to
 
 ## When to add Curry 🥄
 
-The motivations for currying functions vary. One reason is the ability to pass a function *some* of its arguments at one point, and then pass the *rest* later. This can e.g. lead to reusability by being able to preset a function. Another reason is the ability to write expressive code.
+The motivations for currying functions vary. One reason is the ability to pass a function **some** of its arguments at one point, and then pass the **rest** later. This can e.g. lead to reusability by being able to preset a function. Another reason is the ability to write expressive code.
 
 Consider this example of using the curried function to implement a whole new `take` function:
 
