@@ -2,7 +2,7 @@
 
 ### What is immutability, how can it be achieved in JavaScript and why should you care?
 
-One of the most common array operation is **push** - the operation that appends a new entry to an array. In the following example we declare an array of natural numbers and add `4` to it using [`Array.prototype.push`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push):
+One of the most common array operations is **push** - the operation that appends a new entry to an array. In the following example we declare an array of natural numbers and add `4` to it using [`Array.prototype.push`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push):
 
 ```js
 const natural = [0, 1, 2, 3]
@@ -127,7 +127,7 @@ even
 // => [2]
 ```
 
-Because [`Array.prototype.splice`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) is a stateful method like `Array.prototype.push`, the value of `even` has been modified!
+Because [`Array.prototype.splice`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) is a stateful method, and because `even` is passed to `take` by reference, the value of `even` has been modified!
 
 It becomes apparent that `tail` can be referred to what is normally known as an **impure function**. It's concern should be to take an array as it's input and return the tail of that array. But as a bonus it has the side-effect of modifying the original array too.
 
