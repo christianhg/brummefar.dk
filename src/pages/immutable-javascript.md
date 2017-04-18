@@ -2,6 +2,10 @@
 
 ### What is immutability, how can it be achieved in JavaScript and why should you care?
 
+> **immutable**<br>
+> Unchanging over time or unable to be changed.<br>
+> -- [Oxford Dictionaries](https://en.oxforddictionaries.com/definition/immutable)
+
 One of the most common array operations is **push** - the operation that appends a new entry to an array. In the following example we declare an array of natural numbers and add `4` to it using [`Array.prototype.push`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push):
 
 ```js
@@ -34,7 +38,7 @@ alphabet
 // => "abcd"
 ```
 
-As for Objects, nothing is stopping you from accessing and overwriting their properties:
+As for objects, nothing is stopping you from overwriting their properties. In the following example a `player` object with `damage` and `health` is created. Afterwards the object is mutated using a property assignment statement:
 
 ```js
 const player = {
@@ -50,7 +54,7 @@ player
 
 ## How to achieve immutability
 
-As it happens, it is possible to do any array operation in an immutable fashion using native JavaScript. In the case of appending a value to an array, this can be obtained using my favorite ES2015 feature, the [spread operator](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Spread_operator):
+As it happens, it is possible to do any array operation in an immutable fashion using native JavaScript. In the case of appending an entry to an array, this can be obtained using my favorite ES2015 feature, the [spread operator](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Spread_operator):
 
 ```js
 const odd = [1, 3, 5, 7]; // <-- eew, necessary ; before [
@@ -62,7 +66,11 @@ odd
 // => [1, 3, 5, 7]
 ```
 
-Not only did this result in a smaller amount of code, it's arguably more expressive too. But what about decreasing the `health` of the `player` Object? It turns out, it's possible to [freeze](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze) an Object to prevent mutation.
+The spread operator, when used inside an array literal, "spreads out" the `odd` array and copies its entries into the new array. Not only did this result in a smaller amount of code than using `Array.prototype.push`, it's arguably more expressive too.
+
+What about decreasing the `health` of the `player` object?
+
+It turns out, it's possible to "freeze" an object using [`Object.freeze`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze). Below a `player` object is created and immediately frozen to protect it against mutation. The succeeding property assignment doesn't alter the object and amounts to nothing:
 
 ```js
 const player = {
@@ -78,9 +86,9 @@ player
 // => { damage: 50, health: 80 }
 ```
 
-Normally you might not need the overhead of `Object.freeze`, but it's a handy function to pull in when writing unit tests for functions that should preserve immutability.
+Normally you might not need the overhead of `Object.freeze`, but it's a handy function to pull in when writing unit tests for functions that should preserve immutability:
 
-To decrease the `health` of the `player` in an immutable fashion, a new Object has to be created. Here [`Object.assign`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) can help by copying the properties of `player` to a new Object and afterwards overwriting the `health` property:
+To decrease the `health` of the `player` in an immutable fashion, a new object has to be created. Here [`Object.assign`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) can be of help. It allows us to copy the properties of `player` to a new object literal and afterwards overwriting the `health` property using yet another object literal with only that property:
 
 ```js
 const player = {
@@ -95,23 +103,21 @@ player
 // => { damage: 50, health: 80 }
 ```
 
-The original Object remains untouched!
+The original object remains untouched!
 
-Please note that `Object.freeze` doesn't deep freeze Objects and `Object.assign` doesn't deep clone Objects either. To achieve the same results with nested data structures [various](https://www.npmjs.com/package/deep-freeze) [npm modules](https://www.npmjs.com/package/clone) might be able to assist.
+Please note that `Object.freeze` doesn't deep freeze objects and `Object.assign` doesn't deep clone objects either. To achieve the same results with nested data structures [various](https://www.npmjs.com/package/deep-freeze) [npm modules](https://www.npmjs.com/package/clone) might be able to assist.
 
 ## Why immutability is important
 
-There is a rising trend in the JavaScript community to strive for immutability, and for a good reason. Functional programming (as opposed to e.g. object-oriented programming) is [on the rise](https://medium.com/javascript-scene/the-rise-and-fall-and-rise-of-functional-programming-composable-software-c2d91b424c8c) in an effort to create programs that are simpler and easier to reason about. While object-oriented programming embraces mutability through stateful objects, functional programming embraces immutability through stateless [pure functions](https://en.wikipedia.org/wiki/Pure_function).
+There is a rising trend in the JavaScript community to strive for immutability, and for a good reason. Functional programming (as opposed to e.g. object-oriented programming) is [on the rise](https://medium.com/javascript-scene/the-rise-and-fall-and-rise-of-functional-programming-composable-software-c2d91b424c8c) in an effort to create programs that are simpler and easier to reason about. While object-oriented programming embraces mutability through stateful objects, functional programming embraces immutability through stateless [pure functions](https://en.wikipedia.org/wiki/Pure_function). Knowing that data can't be mutated after it's creation can remove a lot of cognitive load from a program.
 
-Knowing that data can't be mutated after it's creation can remove a lot of cognitive load from a program. But preserving immutable data is not a simple task. A common gotcha is the fact that passing references to a function can cause unwanted side effects.
+Unfortunately, preserving immutable data is not a simple task. A common gotcha is the fact that passing references to a function can cause unwanted side effects.
 
 Consider the following function that returns the tail of an array:
 
 ```js
 function tail(arr) {
-  const tail = arr.splice(1)
-
-  return tail
+  return arr.splice(1)
 }
 
 const even = [2, 4, 6, 8]
@@ -120,7 +126,7 @@ tail(even)
 // => [4, 6, 8]
 ```
 
-As expected, the function returns the tail of `even`, but let's inspect the original Array for good measure. It shouldn't have changed, right?
+As expected, the function returns the tail of `even`, but let's inspect the original array for good measure. It shouldn't have changed, right?
 
 ```js
 even
@@ -147,6 +153,6 @@ prime
 // => [2, 3, 5, 7]
 ```
 
-Immutability is part of the backbone of functional programming, but even with new features of ES2015 it's not trivial to achieve in JavaScript. There are even many more pitfalls to be aware about than the ones described above.
+Immutability is the backbone of functional programming, but even with new features of ES2015 it's not trivial to achieve in JavaScript. There are even many more pitfalls to be aware about than the ones described above.
 
 It is however valuable to learn about immutability. Implementing it's principles even in non-functional codebases can lead to more declarative programs with less unwanted side-effects.
