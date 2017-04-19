@@ -24,7 +24,7 @@ natural
 // => [0, 1, 2, 3, 4]
 ```
 
-In JavaScript the six primitive types - Boolean, Null, Number, String, Symbol and Undefined - are **immutable**. All other values (including Arrays) derive from the Object type which is mutable.
+In JavaScript the six primitive types - Boolean, Null, Number, String, Symbol and Undefined - are **immutable**. All other values (including arrays) derive from the Object type which is mutable.
 
 When working with primitive types, it is impossible to change their values. Instead you create new values from them:
 
@@ -86,7 +86,7 @@ player
 // => { damage: 50, health: 80 }
 ```
 
-Normally you might not need the overhead of `Object.freeze`, but it's a handy function to pull in when writing unit tests for functions that should preserve immutability:
+Normally you might not need the overhead of `Object.freeze`, but it's a handy function to pull in when writing unit tests for functions that should preserve immutability.
 
 To decrease the `health` of the `player` in an immutable fashion, a new object has to be created. Here [`Object.assign`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) can be of help. It allows us to copy the properties of `player` to a new object literal and afterwards overwriting the `health` property using yet another object literal with only that property:
 
@@ -133,7 +133,7 @@ even
 // => [2]
 ```
 
-Because [`Array.prototype.splice`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) is a stateful method, and because `even` is passed to `take` by reference, the value of `even` has been modified!
+Because [`Array.prototype.splice`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) is a stateful method, and because `even` is passed to `tail` by reference, the value of `even` has been modified!
 
 It becomes apparent that `tail` can be referred to what is normally known as an **impure function**. It's concern should be to take an array as it's input and return the tail of that array. But as a bonus it has the side-effect of modifying the original array too.
 
@@ -153,6 +153,6 @@ prime
 // => [2, 3, 5, 7]
 ```
 
-Immutability is the backbone of functional programming, but even with new features of ES2015 it's not trivial to achieve in JavaScript. There are even many more pitfalls to be aware about than the ones described above.
+Immutability is the backbone of functional programming, but even with new features of ES2015 it's not trivial to achieve in JavaScript. There are even many more pitfalls to be aware of than the ones described above.
 
 It is however valuable to learn about immutability. Implementing it's principles even in non-functional codebases can lead to more declarative programs with less unwanted side-effects.
