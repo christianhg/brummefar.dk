@@ -6,6 +6,10 @@
 > Unchanging over time or unable to be changed.<br>
 > -- [Oxford Dictionaries](https://en.oxforddictionaries.com/definition/immutable)
 
+There is a rising trend in the JavaScript community to strive for immutability, and for a good reason. Functional programming (as opposed to e.g. object-oriented programming) is [on the rise](https://medium.com/javascript-scene/the-rise-and-fall-and-rise-of-functional-programming-composable-software-c2d91b424c8c) in an effort to create programs that are simpler and easier to reason about. While object-oriented programming embraces mutability through stateful objects, functional programming embraces immutability through stateless [pure functions](https://en.wikipedia.org/wiki/Pure_function). Knowing that data can't be mutated after it's creation can remove a lot of cognitive load from a program.
+
+## The mutable JavaScript
+
 One of the most common array operations is **push** - the operation that appends a new entry to an array. In the following example we declare an array of natural numbers and add `4` to it using [`Array.prototype.push`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push):
 
 ```js
@@ -52,7 +56,7 @@ player
 // => { damage: 50, health: 70 }
 ```
 
-## How to achieve immutability
+## Achieving immutability
 
 As it happens, it is possible to do any array operation in an immutable fashion using native JavaScript. In the case of appending an entry to an array, this can be obtained using my favorite ES2015 feature, the [spread operator](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Spread_operator):
 
@@ -107,9 +111,7 @@ The original object remains untouched!
 
 Please note that `Object.freeze` doesn't deep freeze objects and `Object.assign` doesn't deep clone objects either. To achieve the same results with nested data structures [various](https://www.npmjs.com/package/deep-freeze) [npm modules](https://www.npmjs.com/package/clone) might be able to assist.
 
-## Why immutability is important
-
-There is a rising trend in the JavaScript community to strive for immutability, and for a good reason. Functional programming (as opposed to e.g. object-oriented programming) is [on the rise](https://medium.com/javascript-scene/the-rise-and-fall-and-rise-of-functional-programming-composable-software-c2d91b424c8c) in an effort to create programs that are simpler and easier to reason about. While object-oriented programming embraces mutability through stateful objects, functional programming embraces immutability through stateless [pure functions](https://en.wikipedia.org/wiki/Pure_function). Knowing that data can't be mutated after it's creation can remove a lot of cognitive load from a program.
+## Wrap-up
 
 Unfortunately, preserving immutable data is not a simple task. A common gotcha is the fact that passing references to a function can cause unwanted side effects.
 
@@ -137,7 +139,7 @@ Because [`Array.prototype.splice`](https://developer.mozilla.org/en-US/docs/Web/
 
 It becomes apparent that `tail` can be referred to what is normally known as an **impure function**. It's concern should be to take an array as it's input and return the tail of that array. But as a bonus it has the side-effect of modifying the original array too.
 
-Some (unfortunately crafted) stateful programs may rely on side-effects like this, but to preserve immutability it should be avoided. Writing `tail` as a **pure function**, the stateless [`Array.prototype.slice`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) can be put to use:
+Some (unfortunately crafted) stateful programs may rely on side-effects like this, but to maintain sanity it should be avoided. Writing `tail` as a **pure function**, the stateless [`Array.prototype.slice`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) can be put to use:
 
 ```js
 function tailPure(arr) {
@@ -153,6 +155,4 @@ prime
 // => [2, 3, 5, 7]
 ```
 
-Immutability is the backbone of functional programming, but even with new features of ES2015 it's not trivial to achieve in JavaScript. There are even many more pitfalls to be aware of than the ones described above.
-
-It is however valuable to learn about immutability. Implementing it's principles even in non-functional codebases can lead to more declarative programs with less unwanted side-effects.
+Immutability is the backbone of functional programming, but even with new features of ES2015 it's not trivial to achieve in JavaScript. There are even many more pitfalls to be aware of than the ones described above. It is however valuable to learn about immutability. Implementing it's principles even in non-functional codebases can lead to more declarative programs with less unwanted side-effects.
