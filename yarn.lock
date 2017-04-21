@@ -1770,17 +1770,9 @@ escope@^3.6.0:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint-config-standard-jsx@3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-standard-jsx/-/eslint-config-standard-jsx-3.3.0.tgz#cab0801a15a360bf63facb97ab22fbdd88d8a5e0"
-
 eslint-config-standard-jsx@4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/eslint-config-standard-jsx/-/eslint-config-standard-jsx-4.0.1.tgz#cd4e463d0268e2d9e707f61f42f73f5b3333c642"
-
-eslint-config-standard@10.0.0:
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-standard/-/eslint-config-standard-10.0.0.tgz#29f3625eafc490b89592506d25e3f4477770b973"
 
 eslint-config-standard@10.2.1:
   version "10.2.1"
@@ -1839,10 +1831,6 @@ eslint-plugin-react@~6.10.0:
     has "^1.0.1"
     jsx-ast-utils "^1.3.4"
     object.assign "^4.0.4"
-
-eslint-plugin-standard@~2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-standard/-/eslint-plugin-standard-2.2.0.tgz#61273ddbab958ccc88d94d6bb5b2db63ffbd368e"
 
 eslint-plugin-standard@~3.0.1:
   version "3.0.1"
@@ -2566,9 +2554,13 @@ highlight-loader@^0.7.2:
     highlight.js "^9.1.0"
     loader-utils "^0.2.12"
 
-highlight.js@^9.1.0, highlight.js@^9.10.0:
+highlight.js@^9.1.0:
   version "9.10.0"
   resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-9.10.0.tgz#f9f0b14c0be00f0e4fb1e577b749fed9e6f52f55"
+
+highlight.js@^9.11.0:
+  version "9.11.0"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-9.11.0.tgz#47f98c7399918700db2caf230ded12cec41a84ae"
 
 hmac-drbg@^1.0.0:
   version "1.0.0"
@@ -5282,21 +5274,7 @@ standard-loader@^6.0.1:
     object-assign "^4.1.1"
     snazzy "^6.0.0"
 
-standard@*:
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/standard/-/standard-10.0.0.tgz#913c77df56c294d9c4dff60dce6f307b2c779d0f"
-  dependencies:
-    eslint "~3.19.0"
-    eslint-config-standard "10.0.0"
-    eslint-config-standard-jsx "3.3.0"
-    eslint-plugin-import "~2.2.0"
-    eslint-plugin-node "~4.2.2"
-    eslint-plugin-promise "~3.5.0"
-    eslint-plugin-react "~6.10.0"
-    eslint-plugin-standard "~2.2.0"
-    standard-engine "~7.0.0"
-
-standard@^10.0.2:
+standard@*, standard@^10.0.2:
   version "10.0.2"
   resolved "https://registry.yarnpkg.com/standard/-/standard-10.0.2.tgz#974c1c53cc865b075a4b576e78441e1695daaf7b"
   dependencies:
