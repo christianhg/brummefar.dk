@@ -2,29 +2,41 @@ import 'reset-css/reset.css'
 import 'highlight.js/styles/atom-one-light.css'
 import '../main.scss'
 
-import * as router from 'page'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Parser } from 'html-to-react'
 
 import { articles, home, wrote } from './pages'
 
-const baseTitle = 'brummefar.dk'
-const main = document.getElementsByTagName('main')
-const menu = document.getElementsByTagName('nav')[0].getElementsByTagName('ul')
+const router = require('page')
+const parser = new Parser()
 
+const baseTitle = 'brummefar.dk'
+const main = document.getElementsByTagName('main')[0]
+const menu = document.getElementsByTagName('nav')[0]
+
+const menuLink = link => <li key={link.path}><a href={link.path}>{link.title}</a></li>
 const getTitle = pageTitle => `${pageTitle} ~ ${baseTitle}`
-const setMenu = links => {
-  menu[0].innerHTML = links
-    .map(link => `<li><a href="${link.path}">${link.title}</a></li>`)
-    .join('')
-}
+
+const Menu = props => (
+  <ul>
+    {props.page.links && props.page.links.map(menuLink)}
+  </ul>
+)
+
+const Main = props => (
+  <div>
+    {props.page.date && <div className='date'>{props.page.date}</div>}
+    <div>{parser.parse(props.page.content)}</div>
+  </div>
+)
+
 const setPage = page => {
-  page.getContent()
-    .then(content => {
-      main[0].innerHTML = page.date
-          ? `<div class="date">${page.date}</div>${content}`
-          : content
-    })
   document.title = getTitle(page.link.title)
-  setMenu(page.links)
+  ReactDOM.render(<Menu page={page} />, menu)
+  page.getContent()
+    .then(content =>
+      ReactDOM.render(<Main page={Object.assign({}, page, { content })} />, main))
 }
 
 router('/', () => {
