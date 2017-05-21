@@ -18,7 +18,6 @@ import { articles, home, wrote } from './pages'
 
 const parser = new Parser()
 const baseTitle = 'brummefar.dk'
-const root = document.getElementById('root')
 const getTitle = pageTitle => `${pageTitle} ~ ${baseTitle}`
 
 const Account = account => (
@@ -121,4 +120,4 @@ const Routes = () => (
   </Router>
 )
 
-ReactDOM.render(<Routes />, root)
+ReactDOM.render(<Routes />, document.getElementById('root'))
