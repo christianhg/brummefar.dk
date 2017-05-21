@@ -2,7 +2,9 @@ import 'reset-css/reset.css'
 import 'highlight.js/styles/atom-one-light.css'
 import '../main.scss'
 
+import { Parser } from 'html-to-react'
 import React from 'react'
+import DocumentTitle from 'react-document-title'
 import ReactDOM from 'react-dom'
 import {
   BrowserRouter as Router,
@@ -10,9 +12,9 @@ import {
   Link,
   Switch
 } from 'react-router-dom'
-import { Parser } from 'html-to-react'
-import { articles, home, wrote } from './pages'
+
 import { accounts } from './accounts'
+import { articles, home, wrote } from './pages'
 
 const parser = new Parser()
 const baseTitle = 'brummefar.dk'
@@ -77,13 +79,13 @@ class Page extends React.Component {
   }
 
   render () {
-    document.title = getTitle(this.state.page.link.title)
-
     return (
-      <div>
-        <Header page={this.state.page} />
-        <Main page={this.state.page} />
-      </div>
+      <DocumentTitle title={getTitle(this.state.page.link.title)}>
+        <div>
+          <Header page={this.state.page} />
+          <Main page={this.state.page} />
+        </div>
+      </DocumentTitle>
     )
   }
 }
