@@ -18,6 +18,10 @@ const links = [
   {
     path: '/wrote/immutable-javascript',
     title: 'Immutable JavaScript'
+  },
+  {
+    path: '/wrote/git-and-how-we-commit',
+    title: 'Git (and how we Commit)'
   }
 ]
 
@@ -53,6 +57,14 @@ export const articles = [
     links: [
       links[0]
     ]
+  },
+  {
+    date: '7 January 2018',
+    getContent: () => import('../pages/git-and-how-we-commit.md'),
+    link: links[5],
+    links: [
+      links[0]
+    ]
   }
 ]
 
@@ -63,7 +75,8 @@ export const wrote = {
     links[1],
     links[2],
     links[3],
-    links[4]
+    links[4],
+    links[5]
   ]
 }
 
