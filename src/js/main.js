@@ -30,7 +30,7 @@ const Account = account => (
 const Footer = () => (
   <footer>
     <p>
-      &copy; 2017 ~ Christian 'Brummefar' Grøngaard
+      &copy; 2018 ~ Christian 'Brummefar' Grøngaard
       {accounts.map(Account)}
     </p>
   </footer>
