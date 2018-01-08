@@ -1,7 +1,7 @@
 {
   "scripts": {
     "dev": "webpack-dev-server",
-    "dist": "rm -rf ./dist && npm run prettier-production && webpack -p",
+    "dist": "trash dist && npm run prettier-production && webpack -p",
     "prepush": "npm run prettier-production",
     "prettier": "prettier --write ./src/**/*.{js,md,scss}",
     "prettier-production": "prettier --list-different ./src/**/*.{js,md,scss}"
@@ -37,6 +37,7 @@
     "react-router-dom": "^4.2.2",
     "reset-css": "^2.2.1",
     "sass-loader": "^6.0.6",
+    "trash-cli": "^1.4.0",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.10.0"
   }
