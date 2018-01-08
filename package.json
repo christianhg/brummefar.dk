@@ -1,8 +1,7 @@
 {
   "scripts": {
     "dev": "webpack-dev-server",
-    "predist": "rm -rf ./dist",
-    "dist": "npm run prettier-production && webpack -p",
+    "dist": "rm -rf ./dist && npm run prettier-production && webpack -p",
     "prepush": "npm run prettier-production",
     "prettier": "prettier --write ./src/**/*.{js,md,scss}",
     "prettier-production": "prettier --list-different ./src/**/*.{js,md,scss}"
