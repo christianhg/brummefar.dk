@@ -3,6 +3,7 @@
 [Currying](https://en.wikipedia.org/wiki/Currying) is the useful technique of transforming a function that takes multiple arguments into a sequence of functions that all take a single argument.
 
 Have a look at this simple function that returns the slice of an Array:
+
 ```js
 function slice(from, to, xs) {
   return xs.slice(from, to)
@@ -13,6 +14,7 @@ slice(0, 2, [0, 1, 2, 3, 4])
 ```
 
 A curried version could look like this:
+
 ```js
 function sliceCurried(from) {
   return function(to) {
@@ -29,10 +31,7 @@ slice(0)(2)([0, 1, 2, 3, 4])
 Let's write it more succinctly using [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions):
 
 ```js
-const sliceCurried = from =>
-  to =>
-    xs =>
-      xs.slice(from, to)
+const sliceCurried = from => to => xs => xs.slice(from, to)
 ```
 
 As you can see, the function has been transformed into taking its arguments one by one and returning a new function until the end result is reached.
@@ -67,7 +66,7 @@ takeTwo(['a', 'b', 'c', 'd', 'e'])
 // => ['a', 'b']
 ```
 
-The fact that a function can easily be repurposed in an expressive way is a  powerful feature. Remember, code is for humans to read. It's merely a side effect if the computers understand it too.
+The fact that a function can easily be repurposed in an expressive way is a powerful feature. Remember, code is for humans to read. It's merely a side effect if the computers understand it too.
 
 Jokes aside, which one is easiest to read an reason about?
 
@@ -89,8 +88,7 @@ It turns out, it is not too difficult to implement a simple curry function. The 
 const curry = (f, recieved = [], arity = f.length) =>
   arity <= 0
     ? f.apply(undefined, recieved)
-    : (...args) =>
-      curry(f, [...recieved, ...args], arity - args.length)
+    : (...args) => curry(f, [...recieved, ...args], arity - args.length)
 ```
 
 And is used like this:
@@ -127,8 +125,5 @@ One of the reasons our curried `slice` function is particularly reusable is that
 It would not have been possible to implement a generic `takeTwo` function if the Array was passed as the first argument:
 
 ```js
-const sliceCurried = xs =>
-  from =>
-    to =>
-      xs.slice(from, to)
+const sliceCurried = xs => from => to => xs.slice(from, to)
 ```

@@ -55,7 +55,6 @@ To re-enter the system, the user again enters their password in cleartext. Again
 
 ![Checking user integrity](../images/hashes-and-salts-d.svg)
 
-
 ## Is it offensive to add salt?
 
 The approach described above is better than storing passwords in cleartext, but in the real world it's not sufficient. The reason is mainly something called [rainbow tables](http://kestas.kuliukas.com/RainbowTables/). A rainbow table is basically a precomputed list of cleartext keys and their respective hashes. Using a rainbow table it is thus possible to derive a password from it's hash. To guard against this, it is common practice to add **salt**.

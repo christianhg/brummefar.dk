@@ -4,7 +4,7 @@
 @font-face {
   font-family: 'FiraCode';
   src: url('./fonts/FiraCode-Regular.woff2') format('woff2'),
-       url('./fonts/FiraCode-Regular.woff') format('woff');
+    url('./fonts/FiraCode-Regular.woff') format('woff');
 }
 
 $modularscale: (
@@ -14,7 +14,7 @@ $modularscale: (
 
 $color-black: rgb(50, 50, 50);
 $color-grey: rgb(240, 240, 240);
-$color-highlight: lighten(#94C757, 15%);
+$color-highlight: lighten(#94c757, 15%);
 $color-white: rgb(250, 250, 250);
 
 $font-family-code: 'FiraCode', monospace;
@@ -149,12 +149,16 @@ a {
   text-decoration: none;
 
   &:before {
-    background-image: linear-gradient(to bottom, $color-highlight, $color-highlight);
+    background-image: linear-gradient(
+      to bottom,
+      $color-highlight,
+      $color-highlight
+    );
     background-repeat: repeat-x;
     background-size: auto 0.15em;
     background-position: 0 1.1em;
     bottom: 0;
-    content: "";
+    content: '';
     left: 0;
     position: absolute;
     right: 0;
@@ -203,7 +207,7 @@ code {
   &:before {
     background-color: $color-grey;
     bottom: -0.1em;
-    content: "";
+    content: '';
     left: -0.3em;
     position: absolute;
     right: -0.3em;

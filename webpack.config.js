@@ -27,12 +27,6 @@ module.exports = {
         use: ['babel-loader']
       },
       {
-        enforce: 'pre',
-        exclude: path.resolve(__dirname, 'src/js/pages.js'),
-        test: /\.js$/,
-        use: 'standard-loader'
-      },
-      {
         test: /\.(jpg|woff|woff2|svg)$/,
         use: ['file-loader']
       },

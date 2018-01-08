@@ -60,6 +60,7 @@ player
 
 As it happens, it is possible to do any array operation in an immutable fashion using native JavaScript. In the case of appending an entry to an array, this can be obtained using my favorite ES2015 feature, the [spread operator](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Spread_operator):
 
+<!-- prettier-ignore -->
 ```js
 const odd = [1, 3, 5, 7]; // <-- eew, necessary ; before [
 

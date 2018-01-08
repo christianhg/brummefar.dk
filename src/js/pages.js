@@ -30,63 +30,45 @@ export const articles = [
     date: '6 March 2017',
     getContent: () => import('../pages/choosing-redux.md'),
     link: links[1],
-    links: [
-      links[0]
-    ]
+    links: [links[0]]
   },
   {
     date: '27 March 2017',
     getContent: () => import('../pages/currying-javascript.md'),
     link: links[2],
-    links: [
-      links[0]
-    ]
+    links: [links[0]]
   },
   {
     date: '1 April 2017',
     getContent: () => import('../pages/hashes-and-salts.md'),
     link: links[3],
-    links: [
-      links[0]
-    ]
+    links: [links[0]]
   },
   {
     date: '17 April 2017',
     getContent: () => import('../pages/immutable-javascript.md'),
     link: links[4],
-    links: [
-      links[0]
-    ]
+    links: [links[0]]
   },
   {
     date: '7 January 2018',
     getContent: () => import('../pages/git-and-how-we-commit.md'),
     link: links[5],
-    links: [
-      links[0]
-    ]
+    links: [links[0]]
   }
 ]
 
 export const wrote = {
   getContent: () => import('../pages/wrote.md'),
   link: links[0],
-  links: [
-    links[1],
-    links[2],
-    links[3],
-    links[4],
-    links[5]
-  ]
+  links: [links[1], links[2], links[3], links[4], links[5]]
 }
 
 export const home = {
   getContent: () => import('../pages/home.md'),
   link: {
     path: '/',
-    title: 'Hi, I\'m Christian!'
+    title: "Hi, I'm Christian!"
   },
-  links: [
-    links[0]
-  ]
+  links: [links[0]]
 }

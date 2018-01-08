@@ -30,9 +30,9 @@ I find the last point especially important. Our code is not always self-explanat
 
 The following is a list of guidelines and helpful pointers on committing code:
 
-- Make each commit a logically separate changeset.
-- Keep the summary of the commit message concise.
-- Follow the summary with a detailed explanation if necessary.
+* Make each commit a logically separate changeset.
+* Keep the summary of the commit message concise.
+* Follow the summary with a detailed explanation if necessary.
 
 If it's difficult to summarise, the commit can probably be split up.
 Both when putting together a commit and writing the corresponding commit message, three questions are helpful to keep in mind:
