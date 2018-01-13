@@ -18,17 +18,17 @@ A feature can be a potpourri of seemingly unplanned commits, or it can be a stri
 
 ## Writing Commit Messages
 
-Commit messages annotate our commits. The commit itself is really just a `diff` of what has changed: it is the related commit message that provides the context and helps us get in the mindset of the developer who produced the code.
+Commit messages annotate our commits. The commit itself is really just a `diff` of what has changed: it is the related commit message that provides the context and helps us get in the mindset of the developer who produced the code. Spend those extra five minutes to craft an even better commit message. Take pride in doing spellcheck and ensuring a consistent (and short) line length to heighten the legibility.
 
-Spend those extra five minutes to craft an even better commit message. Take pride in doing spellcheck and ensuring a consistent (and short) line length to heighten the legibility. Use the commit message mainly to describe why the change was needed. This ensures that programmers - you or others, now or in the future - are in the know.
+A commit message consists of a summary line followed by a blank line followed by a description. It is widely considered good practice to start the summary line with a verb in imperative mode ("Add", "Fix", "Remove", ...) as it can help keep the summaries concise and consistent. If a commit is difficult to summarise, or in other ways reason about, perhaps it should be split up?
+
+Use the description mainly to describe why the change was needed. This ensures that programmers - you or others, now or in the future - are in the know.
 
 Both when putting together a commit and writing the corresponding commit message, the programmer can ask themself:
 
 * Why is the change necessary?
 * How does the change address the issue at hand?
 * What effects does the change have?
-
-If a commit is difficult to summarise, perhaps it should be split up?
 
 ## Grooming the Commit History
 
