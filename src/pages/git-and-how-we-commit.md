@@ -4,7 +4,7 @@
 
 Most of us work asynchronously, as a distributed team, on a shared body of work, and when not sharing our wisdom in Slack and in various meetings, we speak to each other through the code we produce. Luckily Git allows us to annotate and separate this code into semantic pieces that heighten this communication.
 
-But Git is only the tool, and it really comes down to how we use it. Clear-cut commits can enhance communication with little overhead. On the other hand, unstructured commits with poorly written commit messages can be incredibly wasteful when it comes to future readability and maintenance. The quality of a commit can in that sense reveal whether a programmer is a good collaborator. Ouch.
+But Git is only the tool, and it really comes down to how we use it. Clear-cut commits can enhance communication with little overhead. On the other hand, unstructured commits with poorly written commit messages can be incredibly wasteful when it comes to future readability and maintenance. The quality of a commit can in that sense [reveal whether a programmer is a good collaborator](http://who-t.blogspot.no/2009/12/on-commit-messages.html). Ouch.
 
 This is a motivational page that hopefully will help us fall into the category of good collaborators.
 
