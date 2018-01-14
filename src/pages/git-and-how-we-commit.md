@@ -6,7 +6,7 @@ Most of us work asynchronously, as a distributed team, on a shared body of work,
 
 But Git is only the tool, and it really comes down to how we use it. Clear-cut commits can enhance communication with little overhead. On the other hand, unstructured commits with poorly written commit messages can be incredibly wasteful when it comes to future readability and maintenance. The quality of a commit can in that sense reveal whether a programmer is a good collaborator. Ouch.
 
-This is a motivational page to help us all fall into the category of good collaborators.
+This is a motivational page that hopefully will help us fall into the category of good collaborators.
 
 ## What is a Commit?
 
@@ -14,7 +14,7 @@ One way to look at it would be to say that a commit can be a bugfix, a part of a
 
 This mindset will simply force us to question our assumptions about how the changes we make work and help us refrain from "coding by coincidence". Commits are not the CTRL+S of programming, and when changing a line of code or even the name of a file, we are changing the state of the project.
 
-A feature can be a potpourri of unstructured commits, or it can be a string of well-planned commits that all have their very specific role in bringing the feature to completion. Each commit should be a logically separate changeset that on its own represents the project in a safe state. Before doing a commit, ask yourself why the change is necessary or how it addresses the issue at hand. Be honest. If you are unsure what effects a change has, do everything you can to find out. If you fail to reach an understanding, throw the work away and start over.
+A feature can be a potpourri of unstructured commits, or it can be a string of well-planned commits that all have their very specific role in bringing the feature to completion. Each commit should be a logically separate changeset that on its own represents the project in a safe state. Before doing a commit, ask yourself why the change is necessary or how it addresses the issue at hand. Be honest. If you are unsure what effects a change has, do everything you can to find out. If you fail to reach an understanding, consider throwing the work away and start over.
 
 ## Writing Commit Messages
 
@@ -26,7 +26,7 @@ Use the description mainly to describe why the change was needed. This ensures t
 
 ## Grooming the Commit History
 
-If the commit history is an elevator ride through the life of a project, each commit resembles a button allowing us to get off at the right floor. An unsafe commit would in this scenario resemble stepping out of the elevator a finding oneself floating in mid air.
+If the commit history is an elevator ride through the life of a project, each commit resembles a button allowing us to get off at the right floor. An unsafe commit would in this scenario resemble stepping out of the elevator and finding oneself floating in mid air.
 
 Properly annotated commits of contained changesets will make the elevator ride more pleasant by:
 
