@@ -14,7 +14,7 @@ One way to look at it would be to say that a commit can be a bugfix, a part of a
 
 This mindset will simply force us to question our assumptions about how the changes we make work and help us refrain from "coding by coincidence". Commits are not the CTRL+S of programming, and when changing a line of code or even the name of a file, we are changing the state of the project.
 
-A feature can be a potpourri of seemingly unplanned commits, or it can be a string of well-planned, well-crafted commits that all have their very specific role in bringing the feature to completion.
+A feature can be a potpourri of unstructured commits, or it can be a string of well-planned commits that all have their very specific role in bringing the feature to completion. Each commit should be a logically separate changeset that on its own represents the project in a safe state. Before doing a commit, ask yourself why the change is necessary or how it addresses the issue at hand. Be honest. If you are unsure what effects a change has, do everything you can to find out. If you fail to reach an understanding, throw the work away and start over.
 
 ## Writing Commit Messages
 
@@ -22,13 +22,7 @@ Commit messages annotate our commits. The commit itself is really just a `diff` 
 
 A commit message consists of a summary line followed by a blank line followed by a description. It is widely considered good practice to start the summary line with a verb in imperative mode ("Add", "Fix", "Remove", ...) as it can help keep the summaries concise and consistent. If a commit is difficult to summarise, or in other ways reason about, perhaps it should be split up?
 
-Use the description mainly to describe why the change was needed. This ensures that programmers - you or others, now or in the future - are in the know.
-
-Both when putting together a commit and writing the corresponding commit message, the programmer can ask themself:
-
-* Why is the change necessary?
-* How does the change address the issue at hand?
-* What effects does the change have?
+Use the description mainly to describe why the change was needed. This ensures that programmers - you or others, now or in the future - are in the know. Our code is not always self-explanatory and often when you stumble upon a confusing block of code you would want to know why it's there.
 
 ## Grooming the Commit History
 
@@ -36,11 +30,9 @@ If the commit history is an elevator ride through the life of a project, each co
 
 Properly annotated commits of contained changesets will make the elevator ride more pleasant by:
 
-* Making it easier revert one of the changesets later.
+* Making it easier to revert one of the changesets later.
 * Speeding up reviewing processes.
 * Helping future developers (including oneself) answer questions like: "What were we thinking when this was added?"
-
-I find the last point especially important. Our code is not always self-explanatory and often when I stumble upon a confusing block of code I want to know why it's there.
 
 ## In conclusion
 
@@ -50,4 +42,4 @@ When commiting code it might be helpful to:
 * Keep the summary of the commit message concise.
 * Follow the summary with a detailed explanation if necessary.
 
-Commiting code is easy - but not very useful - if a programmer approaches the tool as the equivalent of CTRL+S. But commiting code should be much more than that: it should be about communication, reflection and honesty. If you don't know why a change is needed, why a bug went away or how a feature of mashed together spaghetti code came to life, do everything you can to find out. If you fail to reach an understanding, throw the work away and start over.
+Commiting code is easy - but not very useful - if a programmer approaches the tool as the equivalent of CTRL+S. But commiting code should be much more than that: it should be about communication, reflection and honesty. When developing software, collaboration and communication is key. And Git is our tool for achieving this at code level.
