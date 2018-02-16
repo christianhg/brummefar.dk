@@ -3,8 +3,8 @@
     "dev": "webpack-dev-server",
     "dist": "trash dist && npm run prettier-production && webpack -p",
     "prepush": "npm run prettier-production",
-    "prettier": "prettier --write ./src/**/*.{js,md,scss}",
-    "prettier-production": "prettier --list-different ./src/**/*.{js,md,scss}"
+    "prettier": "prettier --write {**/*,*}.{js,md,scss}",
+    "prettier-production": "prettier --list-different {**/*,*}.{js,md,scss}"
   },
   "devDependencies": {
     "autotrack": "^2.4.1",
